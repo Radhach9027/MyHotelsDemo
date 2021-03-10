@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HotelsListCustomCell" id="KGk-i7-Jjw" customClass="HotelsListCustomCell" customModule="MyHotels" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="233"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="233"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkV-kk-H9N">
+                        <rect key="frame" x="5.5" y="8.5" width="323" height="216"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Novhotel" translatesAutoresizingMaskIntoConstraints="NO" id="KWm-Hb-uZ3">
+                                <rect key="frame" x="0.0" y="0.0" width="323" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="Nfs-j5-i8q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Novotel Hyderabad Convention Centre - An AccorHotels Brand" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mih-uc-vUO">
+                                <rect key="frame" x="8" y="123" width="307" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                </variation>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNf-0s-geT" customClass="CustomRatingView" customModule="MyHotels" customModuleProvider="target">
+                                <rect key="frame" x="35" y="174" width="150" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="eIS-T4-Jf4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="halfStarsAllowed" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55i-JJ-2gg">
+                                <rect key="frame" x="282" y="173" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="J2S-DF-bTs">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="45"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="35" id="Mzl-w7-rSg">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="45"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal">
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="favouritesButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MB2-oz-Trg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVI-61-ZCP">
+                                <rect key="frame" x="8" y="174" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="CX0-6M-yBn"/>
+                                    <constraint firstAttribute="width" constant="35" id="wyc-1n-uqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pNf-0s-geT" firstAttribute="leading" secondItem="vVI-61-ZCP" secondAttribute="trailing" constant="-8" id="1Jb-Wo-Vx3">
+                                <variation key="heightClass=regular-widthClass=regular" constant="12"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Mih-uc-vUO" secondAttribute="trailing" constant="8" id="5Bo-A3-LBh"/>
+                            <constraint firstItem="Mih-uc-vUO" firstAttribute="top" secondItem="KWm-Hb-uZ3" secondAttribute="bottom" constant="4" id="6WQ-pc-fbj"/>
+                            <constraint firstItem="pNf-0s-geT" firstAttribute="top" secondItem="Mih-uc-vUO" secondAttribute="bottom" constant="3" id="MGS-Ex-FUA"/>
+                            <constraint firstAttribute="bottom" secondItem="vVI-61-ZCP" secondAttribute="bottom" constant="7" id="PYM-oe-kXy"/>
+                            <constraint firstItem="KWm-Hb-uZ3" firstAttribute="leading" secondItem="OkV-kk-H9N" secondAttribute="leading" id="RZA-XR-yGq"/>
+                            <constraint firstAttribute="trailing" secondItem="55i-JJ-2gg" secondAttribute="trailing" constant="6" id="Vqr-SL-8t2"/>
+                            <constraint firstItem="Mih-uc-vUO" firstAttribute="leading" secondItem="OkV-kk-H9N" secondAttribute="leading" constant="8" id="WbU-xI-fwL"/>
+                            <constraint firstAttribute="bottom" secondItem="pNf-0s-geT" secondAttribute="bottom" constant="8" id="Ypw-Qa-UJw"/>
+                            <constraint firstItem="vVI-61-ZCP" firstAttribute="top" secondItem="Mih-uc-vUO" secondAttribute="bottom" constant="3" id="ZSO-bK-TZc"/>
+                            <constraint firstItem="vVI-61-ZCP" firstAttribute="leading" secondItem="OkV-kk-H9N" secondAttribute="leading" constant="8" id="a4d-ww-1T3"/>
+                            <constraint firstAttribute="trailing" secondItem="KWm-Hb-uZ3" secondAttribute="trailing" id="ex5-LN-tyY"/>
+                            <constraint firstItem="55i-JJ-2gg" firstAttribute="top" secondItem="Mih-uc-vUO" secondAttribute="bottom" constant="2" id="lr6-CQ-Ke6"/>
+                            <constraint firstItem="KWm-Hb-uZ3" firstAttribute="top" secondItem="OkV-kk-H9N" secondAttribute="top" id="xoG-tg-J8F"/>
+                            <constraint firstAttribute="bottom" secondItem="55i-JJ-2gg" secondAttribute="bottom" constant="8" id="yel-gK-FF7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="OkV-kk-H9N" secondAttribute="bottom" constant="8.5" id="5oS-tE-2ha"/>
+                    <constraint firstAttribute="trailing" secondItem="OkV-kk-H9N" secondAttribute="trailing" constant="5.5" id="BBl-Ph-Oam"/>
+                    <constraint firstItem="OkV-kk-H9N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5.5" id="HfA-Pf-fPg"/>
+                    <constraint firstItem="OkV-kk-H9N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8.5" id="RZA-T4-ZeR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bgView" destination="OkV-kk-H9N" id="oIM-2g-Zej"/>
+                <outlet property="favourites" destination="55i-JJ-2gg" id="ML4-Kf-7Wt"/>
+                <outlet property="hotelImage" destination="KWm-Hb-uZ3" id="wbK-FG-hjm"/>
+                <outlet property="hotelName" destination="Mih-uc-vUO" id="PUh-Fa-sQW"/>
+                <outlet property="hotelRating" destination="pNf-0s-geT" id="kCX-pc-Dn6"/>
+                <outlet property="ratingLabel" destination="vVI-61-ZCP" id="U2D-RR-wEW"/>
+            </connections>
+            <point key="canvasLocation" x="-600" y="-132.92410714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Novhotel" width="1024" height="768"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

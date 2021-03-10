@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="609" id="KGk-i7-Jjw" customClass="HotelDetailCustomCell" customModule="MyHotels" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="609"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="609"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUk-cW-Kbk">
+                        <rect key="frame" x="10" y="10" width="300" height="580"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-A4-Yrr">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="580"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pc6-uW-D6J">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_background" translatesAutoresizingMaskIntoConstraints="NO" id="k9X-1f-PNi">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7f-5l-qVl">
+                                                <rect key="frame" x="100" y="40" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="POa-uN-FiX"/>
+                                                    <constraint firstAttribute="height" constant="100" id="TD6-Y9-Pam"/>
+                                                </constraints>
+                                                <state key="normal" image="thumbnail"/>
+                                                <connections>
+                                                    <action selector="changePhotoButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4w6-D1-sxH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="k9X-1f-PNi" secondAttribute="bottom" id="Evv-PS-Imy"/>
+                                            <constraint firstItem="Q7f-5l-qVl" firstAttribute="centerX" secondItem="pc6-uW-D6J" secondAttribute="centerX" id="GBI-V6-w5E"/>
+                                            <constraint firstAttribute="height" constant="180" id="T28-YV-Yeh"/>
+                                            <constraint firstItem="k9X-1f-PNi" firstAttribute="leading" secondItem="pc6-uW-D6J" secondAttribute="leading" id="a80-mv-XHN"/>
+                                            <constraint firstItem="Q7f-5l-qVl" firstAttribute="centerY" secondItem="pc6-uW-D6J" secondAttribute="centerY" id="abc-51-ewB"/>
+                                            <constraint firstItem="k9X-1f-PNi" firstAttribute="top" secondItem="pc6-uW-D6J" secondAttribute="top" id="saw-nj-5BO"/>
+                                            <constraint firstAttribute="trailing" secondItem="k9X-1f-PNi" secondAttribute="trailing" id="tOy-sY-N8H"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Hotel name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKx-Rk-DxD" customClass="CustomTextField" customModule="MyHotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="190" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="t1V-Xg-LLQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="opaqueSeparatorColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="KGk-i7-Jjw" id="Me3-Pr-DjE"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-w8-pDK" customClass="CustomTextField" customModule="MyHotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="dWk-Eu-MHa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="opaqueSeparatorColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="KGk-i7-Jjw" id="PW9-dL-5pc"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of stay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="49f-HW-feS" customClass="CustomTextField" customModule="MyHotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="310" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gs5-5k-Uw1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="opaqueSeparatorColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="KGk-i7-Jjw" id="7Sp-Ze-2Yt"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Room price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MgZ-E1-Wq7" customClass="CustomTextField" customModule="MyHotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="370" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Apk-YX-mOE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="opaqueSeparatorColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="KGk-i7-Jjw" id="qv4-DC-SDD"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pty-8d-P2t" customClass="CustomRatingView" customModule="MyHotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="430" width="300" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Obs-3F-Qy4"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="halfStarsAllowed" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhL-Jh-iyu">
+                                        <rect key="frame" x="0.0" y="480" width="300" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OH-x0-AHm" customClass="CustomButton" customModule="MyHotels" customModuleProvider="target">
+                                                <rect key="frame" x="100" y="27.666666666666629" width="100" height="45"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="F47-QE-lDt"/>
+                                                    <constraint firstAttribute="width" constant="100" id="Zel-Dy-Ot6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1ix-qb-XNv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="UCP-AK-fCb"/>
+                                            <constraint firstItem="2OH-x0-AHm" firstAttribute="centerX" secondItem="uhL-Jh-iyu" secondAttribute="centerX" id="ZAh-BQ-e9z"/>
+                                            <constraint firstItem="2OH-x0-AHm" firstAttribute="centerY" secondItem="uhL-Jh-iyu" secondAttribute="centerY" id="vmb-NO-fmL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pc6-uW-D6J" firstAttribute="top" secondItem="a4j-A4-Yrr" secondAttribute="top" id="JnP-Nz-K4h"/>
+                                    <constraint firstItem="pc6-uW-D6J" firstAttribute="leading" secondItem="a4j-A4-Yrr" secondAttribute="leading" id="NSG-EX-OL8"/>
+                                    <constraint firstAttribute="trailing" secondItem="pc6-uW-D6J" secondAttribute="trailing" id="Y0e-GM-iBo"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="a4j-A4-Yrr" secondAttribute="bottom" id="3DN-dS-Tdq"/>
+                            <constraint firstItem="a4j-A4-Yrr" firstAttribute="leading" secondItem="RUk-cW-Kbk" secondAttribute="leading" id="ckI-Kv-UIx"/>
+                            <constraint firstAttribute="trailing" secondItem="a4j-A4-Yrr" secondAttribute="trailing" id="iJ7-GG-PSq"/>
+                            <constraint firstItem="a4j-A4-Yrr" firstAttribute="top" secondItem="RUk-cW-Kbk" secondAttribute="top" id="t15-Tc-CqS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RUk-cW-Kbk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZMa-q1-Te6"/>
+                    <constraint firstItem="RUk-cW-Kbk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZxQ-3V-J30"/>
+                    <constraint firstAttribute="bottom" secondItem="RUk-cW-Kbk" secondAttribute="bottom" constant="10" id="m08-DM-co1"/>
+                    <constraint firstAttribute="trailing" secondItem="RUk-cW-Kbk" secondAttribute="trailing" constant="10" id="ryd-tt-afi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bgImageView" destination="k9X-1f-PNi" id="6xm-qY-IPg"/>
+                <outlet property="bgView" destination="RUk-cW-Kbk" id="VGu-vL-VaE"/>
+                <outlet property="changePhotoButton" destination="Q7f-5l-qVl" id="2io-Y6-bG9"/>
+                <outlet property="hotelAddress" destination="vjo-w8-pDK" id="VoY-VM-6He"/>
+                <outlet property="hotelName" destination="XKx-Rk-DxD" id="BoN-Hq-003"/>
+                <outlet property="hotelPrice" destination="MgZ-E1-Wq7" id="glS-82-ckv"/>
+                <outlet property="hotelStayDate" destination="49f-HW-feS" id="B8c-Dw-mAU"/>
+                <outlet property="ratingView" destination="Pty-8d-P2t" id="mgp-HR-LnL"/>
+                <outlet property="saveButton" destination="2OH-x0-AHm" id="UeX-0o-X6b"/>
+            </connections>
+            <point key="canvasLocation" x="94.20289855072464" y="108.81696428571428"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="2OH-x0-AHm">
+            <size key="intrinsicContentSize" width="45" height="36"/>
+        </designable>
+        <designable name="49f-HW-feS">
+            <size key="intrinsicContentSize" width="97.666666666666671" height="22"/>
+        </designable>
+        <designable name="MgZ-E1-Wq7">
+            <size key="intrinsicContentSize" width="94.333333333333329" height="22"/>
+        </designable>
+        <designable name="XKx-Rk-DxD">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="22"/>
+        </designable>
+        <designable name="vjo-w8-pDK">
+            <size key="intrinsicContentSize" width="71.666666666666671" height="22"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="sample_background" width="626" height="417"/>
+        <image name="thumbnail" width="128" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
