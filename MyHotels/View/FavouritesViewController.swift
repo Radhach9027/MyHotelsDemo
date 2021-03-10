@@ -53,7 +53,7 @@ private extension FavouritesViewController {
     
     @objc func reloadTableView() {
         let tableModel = self.tableModel(shared.myHotels.filter({$0.isFavourite == true}).sorted(by: {Float($0.rating ?? 0.0) > Float($1.rating ?? 0.0)}))
-        tableView?.reload(grouped: tableModel)
+        tableView?.reloadSections(section: 0, grouped: tableModel)
         checkPlaceHolder()
     }
     

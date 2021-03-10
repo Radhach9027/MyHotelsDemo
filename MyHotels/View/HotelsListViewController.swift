@@ -36,6 +36,9 @@ extension HotelsListViewController {
         let tableModel = self.tableModel(shared.myHotels)
         
         tableView = GenericTableViewController(grouped: tableModel, separatorLine: .none, cellEditing: true, refresh: .config(messgae: "Loading..", tint: .gray), cellHandler: { (cell, indexPath) in
+            if let cell = cell as? HotelsListCustomCell {
+                cell.favourites.tag = indexPath.row
+            }
             print("Cell Rolling")
         }, cellTapHandler: { [weak self] (cell, indexPath) in
             print("Cell Tapped")
@@ -47,10 +50,8 @@ extension HotelsListViewController {
             print("Header View")
         }, swipeToDelete: {[weak self] (tableView, indexPath) in
             print("swipeToDelete Tapped")
-            if var model = self?.shared.myHotels {
-                model.remove(at: indexPath.row)
-                self?.shared.myHotels = model
-            }
+            self?.shared.myHotels.remove(at: indexPath.row)
+            self?.reloadTableView()
         })
         
         add(tableView!)
@@ -79,7 +80,7 @@ private extension HotelsListViewController {
     
     @objc func reloadTableView() {
         let tableModel = self.tableModel(shared.myHotels.sorted(by: {(Float($0.rating ?? 0.0)) > (Float($1.rating ?? 0.0))}))
-        tableView?.reload(grouped: tableModel)
+        tableView?.reloadSections(section: 0, grouped: tableModel)
         checkPlaceHolder()
     }
     

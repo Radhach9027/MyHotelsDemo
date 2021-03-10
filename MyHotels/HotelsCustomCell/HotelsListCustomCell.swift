@@ -27,24 +27,12 @@ extension HotelsListCustomCell: ModelUpdateProtocol {
 extension HotelsListCustomCell {
     
     @IBAction func favouritesButtonPressed(_ sender: UIButton) {
-        
-        guard let cell = sender.nearestAncestor(ofType: UITableViewCell.self),
-              let tableView = cell.nearestAncestor(ofType: UITableView.self),
-              let indexPath = tableView.indexPath(for: cell)
-        else { fatalError("No indexpath found from favouritesButtonPressed") }
-
-        var model = SharedManager.shared.myHotels[indexPath.row]
-
-        sender.isSelected = !sender.isSelected
-
-        if sender.isSelected {
+        if sender.currentImage == UIImage(systemName: "heart") {
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-            model.isFavourite = true
+            SharedManager.shared.myHotels[sender.tag].isFavourite = true
         } else {
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
-            model.isFavourite = false
+            SharedManager.shared.myHotels[sender.tag].isFavourite = false
         }
-
-        SharedManager.shared.myHotels[indexPath.row] = model
     }
 }

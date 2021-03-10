@@ -1,3 +1,8 @@
+//  SharedManager.swift
+//  MyHotels
+//  Created by radha chilamkurthy on 09/03/21.
+
+
 import UIKit
 
 struct AlertParameters {

@@ -4,6 +4,10 @@
 
 import UIKit
 
+protocol HotelDetailCustomCellDelegate: class {
+    func hotelDataSaved()
+}
+
 class HotelDetailCustomCell: UITableViewCell {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var hotelName: UITextField!
@@ -14,10 +18,10 @@ class HotelDetailCustomCell: UITableViewCell {
     @IBOutlet weak var ratingView: CustomRatingView!
     @IBOutlet weak var changePhotoButton: UIButton!
     @IBOutlet weak var bgImageView: UIImageView!
-
     private var imagePicker: ImagePicker?
     private var datePciker = DatePicker()
     private var model = MyHotel()
+    weak var delegate: HotelDetailCustomCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,8 +62,10 @@ extension HotelDetailCustomCell {
             } else {
                 SharedManager.shared.myHotels.append(model)
             }
-            
-            Alert.presentAlert(withTitle: "Success", message: "Hotel details saved successfully...")
+            Alert.presentAlert(withTitle: "Alert", message: "Data saved successfully", actionParameters: [AlertParameters(title: "Ok", action: { [weak self] (proceed) in
+                self?.delegate?.hotelDataSaved()
+            })], style: .alert)
+    
         } else {
             Alert.presentAlert(withTitle: "Alert", message: status.1)
         }

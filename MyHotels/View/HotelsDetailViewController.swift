@@ -48,12 +48,20 @@ extension HotelsDetailViewController {
         let tableModel = self.tableModel(model)
         
         tableView = GenericTableViewController(grouped: tableModel, separatorLine: .none, cellHandler: { (cell, indexPath) in
-            print("Cell Rolling")
+            if let cell = cell as? HotelDetailCustomCell {
+                cell.delegate = self
+            }
         }, cellTapHandler: { (cell, indexPath) in
-            print("Cell Tapped")
         })
         
         add(tableView!)
         addConstraints(someController: tableView)
+    }
+}
+
+extension HotelsDetailViewController: HotelDetailCustomCellDelegate {
+    
+    func hotelDataSaved() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
