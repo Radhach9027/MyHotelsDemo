@@ -6,9 +6,9 @@ import UIKit
 
 class HotelsDetailViewController: UIViewController {
     
+    var indexPath: IndexPath?
     fileprivate var tableView: GenericTableViewController?
-    public var indexPath: IndexPath?
-    lazy var tableModel:(_ model: [MyHotel]?) -> [Int : [GroupedModel]] =  { (model) in
+    fileprivate lazy var tableModel:(_ model: [MyHotel]?) -> [Int : [GroupedModel]] =  { (model) in
         //Prepare Generic custom cell with model
         let cell = ConfigureCollectionsModel<HotelDetailCustomCell>(modelData: model)
         

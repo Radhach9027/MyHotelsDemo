@@ -7,8 +7,8 @@ import UIKit
 class HotelsListViewController: UIViewController {
     @IBOutlet weak var placeHolder: UILabel!
     
+    fileprivate var manager = SharedManager.shared
     fileprivate var tableView: GenericTableViewController?
-    fileprivate var shared = SharedManager.shared
     fileprivate lazy var tableModel:(_ model: [MyHotel]) -> [Int : [GroupedModel]] =  { (model) in
         //Prepare Generic custom cell with model
         let cell = ConfigureCollectionsModel<HotelsListCustomCell>(modelData: model)
@@ -33,7 +33,7 @@ extension HotelsListViewController {
     
     func addHotelListTableView() {
         
-        let tableModel = self.tableModel(shared.myHotels)
+        let tableModel = self.tableModel(manager.myHotels)
         
         tableView = GenericTableViewController(grouped: tableModel, separatorLine: .none, cellEditing: true, refresh: .config(messgae: "Loading..", tint: .gray), cellHandler: { (cell, indexPath) in
             if let cell = cell as? HotelsListCustomCell {
@@ -48,10 +48,9 @@ extension HotelsListViewController {
             refresh.endRefreshing()
         }, sectionViewHandler: { (header, section) in
             print("Header View")
-        }, swipeToDelete: {[weak self] (tableView, indexPath) in
+        }, swipeToDelete: { [weak self] (tableView, indexPath) in
             print("swipeToDelete Tapped")
-            self?.shared.myHotels.remove(at: indexPath.row)
-            self?.reloadTableView()
+            self?.manager.myHotels.remove(at: indexPath.row)
         })
         
         add(tableView!)
@@ -77,15 +76,16 @@ private extension HotelsListViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+
     
     @objc func reloadTableView() {
-        let tableModel = self.tableModel(shared.myHotels.sorted(by: {(Float($0.rating ?? 0.0)) > (Float($1.rating ?? 0.0))}))
+        let tableModel = self.tableModel(manager.myHotels)
         tableView?.reloadSections(section: 0, grouped: tableModel)
         checkPlaceHolder()
     }
     
     func checkPlaceHolder() {
-        if shared.myHotels.count > 0 {
+        if manager.myHotels.count > 0 {
             tableView?.tableView.isHidden = false
             self.placeHolder.isHidden = true
         } else {

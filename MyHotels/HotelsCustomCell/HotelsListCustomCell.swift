@@ -17,8 +17,8 @@ extension HotelsListCustomCell: ModelUpdateProtocol {
     
     func update(modelData: MyHotel, indexPath: IndexPath) {
         self.hotelName.text = modelData.name
-        self.hotelRating.rating = modelData.rating ?? 0
-        self.ratingLabel.text = "\(modelData.rating ?? 0)"
+        self.hotelRating.rating = modelData.rating
+        self.ratingLabel.text = "\(modelData.rating)"
         self.hotelImage.image = UIImage.dataToImage(data: modelData.image)
         self.favourites.setImage(modelData.isFavourite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart"), for: .normal)
     }

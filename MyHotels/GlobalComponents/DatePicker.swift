@@ -6,26 +6,29 @@ import UIKit
 
 class DatePicker {
     
-    private var datePicker: UIDatePicker?
-    
-    func showDatePicker(frame: CGRect = .zero, completion: @escaping (_ date: String) -> Void) {
+    static func showDatePicker(frame: CGRect = .zero, completion: @escaping (_ date: String) -> Void) {
         
         if let controller = UIWindow.topViewController {
-            let alert = UIAlertController(title: "Pick Date", message: "\n\n\n\n\n\n\n\n\n\n\n", preferredStyle: .actionSheet)
-            datePicker = UIDatePicker(frame: CGRect(x:0, y:40, width: controller.view.frame.size.width, height: 250))
-            datePicker?.datePickerMode = .date
-            datePicker?.maximumDate = Date()
-            alert.view.addSubview(datePicker!)
-            let doneAction = UIAlertAction(title: "Done", style: .destructive) { [weak self] (action) in
-                if let dateString = self?.datePicker?.date.dateAndTimetoString(format: .MMMddyyyy) {
-                    completion(dateString)
-                }
+            let alert = UIAlertController(title: "Pick Date", message: nil, preferredStyle: .actionSheet)
+            
+            let datePicker = UIDatePicker()
+            datePicker.translatesAutoresizingMaskIntoConstraints = false
+            datePicker.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            datePicker.datePickerMode = .date
+            datePicker.maximumDate = Date()
+            datePicker.translatesAutoresizingMaskIntoConstraints = false
+            alert.view.addSubview(datePicker)
+            addConstraints(datePicker: datePicker, alert: alert)
+            
+            let doneAction = UIAlertAction(title: "Done", style: .destructive) { (action) in
+                let dateString = datePicker.date.dateAndTimetoString(format: .MMMddyyyy)
+                completion(dateString)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(doneAction)
             alert.addAction(cancelAction)
             
-            if (UIDevice().userInterfaceIdiom == .pad){
+            if (UIDevice().userInterfaceIdiom == .pad) {
                 print("iPad")
                 alert.popoverPresentationController?.sourceView = controller.view
                 alert.popoverPresentationController?.sourceRect = frame
@@ -34,5 +37,22 @@ class DatePicker {
                 controller.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    private static func addConstraints(datePicker : UIDatePicker, alert: UIAlertController) {
+        if #available(iOS 13.4, *){
+            if #available(iOS 14.0, *) {
+                datePicker.preferredDatePickerStyle = .inline
+                alert.view.heightAnchor.constraint(equalToConstant: 550).isActive = true
+                datePicker.heightAnchor.constraint(equalToConstant: 380).isActive = true
+                datePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50).isActive = true
+            } else {
+                datePicker.preferredDatePickerStyle = .wheels
+                alert.view.heightAnchor.constraint(equalToConstant: 400).isActive = true
+                datePicker.heightAnchor.constraint(equalToConstant: 300).isActive = true
+            }
+        }
+        datePicker.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor).isActive = true
     }
 }

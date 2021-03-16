@@ -19,7 +19,6 @@ class HotelDetailCustomCell: UITableViewCell {
     @IBOutlet weak var changePhotoButton: UIButton!
     @IBOutlet weak var bgImageView: UIImageView!
     private var imagePicker: ImagePicker?
-    private var datePciker = DatePicker()
     private var model = MyHotel()
     weak var delegate: HotelDetailCustomCellDelegate?
 
@@ -39,7 +38,7 @@ extension HotelDetailCustomCell: ModelUpdateProtocol {
         self.hotelAddress.text = modelData.address
         self.hotelPrice.text = modelData.roomPrice
         self.hotelStayDate.text = modelData.stayDate
-        self.ratingView.rating = modelData.rating ?? 0.0
+        self.ratingView.rating = modelData.rating
         self.changePhotoButton.setImage(UIImage.dataToImage(data: modelData.image), for: .normal)
     }
 }
@@ -74,7 +73,7 @@ extension HotelDetailCustomCell {
     func validate() -> (Bool, String?) {
         if self.model.name == nil {
             return (false, "Hotel name is mandatory")
-        } else if self.model.rating == nil {
+        } else if self.model.rating == 0.0 {
             return (false, "Hotel rating is mandatory")
         } else if self.model.image == nil {
             return (false, "Hotel image is mandatory")
@@ -97,6 +96,7 @@ extension HotelDetailCustomCell: RatingViewDelegate {
     
     func ratingView(_ ratingView: CustomRatingView, didChangeRating newRating: Float) {
         model.rating = newRating
+        self.endEditing(true)
     }
 }
 
@@ -105,7 +105,8 @@ extension HotelDetailCustomCell: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         if textField.tag == 3 {
-            datePciker.showDatePicker(frame: textField.frame) { [weak self] (date) in
+            self.endEditing(true)
+            DatePicker.showDatePicker(frame: textField.frame) { [weak self] (date) in
                 textField.text = date
                 self?.model.stayDate = date
             }

@@ -52,7 +52,7 @@ extension FavouritesViewController {
 private extension FavouritesViewController {
     
     @objc func reloadTableView() {
-        let tableModel = self.tableModel(shared.myHotels.filter({$0.isFavourite == true}).sorted(by: {Float($0.rating ?? 0.0) > Float($1.rating ?? 0.0)}))
+        let tableModel = self.tableModel(shared.myHotels.filter({$0.isFavourite == true}).sorted(by: {$0.rating > $1.rating}))
         tableView?.reloadSections(section: 0, grouped: tableModel)
         checkPlaceHolder()
     }

@@ -17,20 +17,10 @@ open class ImagePicker: NSObject {
     public init(delegate: ImagePickerDelegate) {
         self.pickerController = UIImagePickerController()
         super.init()
-        
         self.delegate = delegate
         self.pickerController.delegate = self
         self.pickerController.allowsEditing = true
         self.pickerController.mediaTypes = ["public.image"]
-    }
-    
-    private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
-        
-        guard UIImagePickerController.isSourceTypeAvailable(type) else {return nil}
-        return UIAlertAction(title: title, style: .default) { [unowned self] _ in
-            self.pickerController.sourceType = type
-            self.presentationController?.present(self.pickerController, animated: true)
-        }
     }
     
     public func present(from sourceView: UIView) {
@@ -59,10 +49,20 @@ open class ImagePicker: NSObject {
             self.presentationController?.present(alertController, animated: true)
         }
     }
+}
+
+private extension ImagePicker {
     
-    private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
+    func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
+        guard UIImagePickerController.isSourceTypeAvailable(type) else {return nil}
+        return UIAlertAction(title: title, style: .default) { [unowned self] _ in
+            self.pickerController.sourceType = type
+            self.presentationController?.present(self.pickerController, animated: true)
+        }
+    }
+    
+    func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: true, completion: nil)
-        
         self.delegate?.didSelect(image: image, data: image?.jpegData(compressionQuality: 0.2))
     }
 }
@@ -73,11 +73,8 @@ extension ImagePicker: UIImagePickerControllerDelegate {
         self.pickerController(picker, didSelect: nil)
     }
     
-    public func imagePickerController(_ picker: UIImagePickerController,
-                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
-            return self.pickerController(picker, didSelect: nil)
-        }
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return self.pickerController(picker, didSelect: nil) }
         self.pickerController(picker, didSelect: image)
     }
 }

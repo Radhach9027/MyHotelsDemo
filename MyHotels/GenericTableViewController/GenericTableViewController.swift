@@ -284,7 +284,7 @@ extension GenericTableViewController {
         DispatchQueue.main.async { [weak self] in
             self?.cleanUp(itemsList: grouped)
             self?.tableView.beginUpdates()
-            self?.tableView.reloadSections(IndexSet(integer: section), with: .none)
+            self?.tableView.reloadSections(IndexSet(integer: section), with: .automatic)
             self?.tableView.endUpdates()
         }
     }
@@ -293,7 +293,7 @@ extension GenericTableViewController {
         DispatchQueue.main.async { [weak self] in
             self?.cleanUp(itemsList: grouped)
             self?.tableView.beginUpdates()
-            self?.tableView.reloadRows(at:[indexPath], with: .none)
+            self?.tableView.reloadRows(at:[indexPath], with: .automatic)
             self?.tableView.endUpdates()
         }
     }

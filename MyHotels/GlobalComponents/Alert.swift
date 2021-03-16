@@ -19,7 +19,8 @@ struct AlertParameters {
 }
 
 class Alert {
-    class func presentAlert(withTitle title: String? = nil, message: String? = nil, controller: UIViewController? = nil) {
+    
+    static func presentAlert(withTitle title: String? = nil, message: String? = nil, controller: UIViewController? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             print("You've pressed OK Button")
@@ -29,7 +30,7 @@ class Alert {
         topController?.present(alertController, animated: true, completion: nil)
     }
 
-    class func presentAlert(withTitle title: String? = nil, message: String? = nil, actionParameters: [AlertParameters], controller: UIViewController? = nil, style: UIAlertController.Style = .alert) {
+    static func presentAlert(withTitle title: String? = nil, message: String? = nil, actionParameters: [AlertParameters], controller: UIViewController? = nil, style: UIAlertController.Style = .alert) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         if actionParameters.isEmpty {
             alertController.addAction(UIAlertAction(title: "OK", style: .default))

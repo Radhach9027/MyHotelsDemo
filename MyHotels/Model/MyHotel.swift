@@ -9,7 +9,7 @@ struct MyHotel: Hashable, Equatable {
     var address: String?
     var stayDate: String?
     var roomPrice: String?
-    var rating: Float?
+    var rating: Float = 0.0
     var image: Data?
     var id: UUID = UUID()
     var isFavourite: Bool = false
